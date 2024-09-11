@@ -1,51 +1,48 @@
-// console.log(hello world);
 
-
-
+const input = document.querySelector("input");
+const ol = document.querySelector("ol");
 
 function renderTodo() {
-    ol.innerHTML = ''
-    for (let i = 0; i < arr.length; i++) {
+    ol.innerHTML = " "
+    for (let i = 0; i < arr.length; i++) {        
         ol.innerHTML += `
-        <li> ${arr[i]}
-        <button onclick="deleteTodo(${i})">delete</button>
-        <button onclick="editTodo(${i})">edit</button>
+        <li>
+        ${arr[i]}
+        <button onclick = "deleteTodo(${i})">delete</button>
+        <button onclick = "editTodo(${i})">edit</button>
         </li>
         `
+        
     }
 }
 
 
-
-
-
-
-
-
-
-const todoInput = document.querySelector('#todo');
-const ol = document.querySelector('ol');
-
 const arr = [];
 
 function addTodo() {
-    arr.push(todoInput.value);
-    renderTodo()
-    todoInput.value = ''
+    arr.push(input.value);
+    renderTodo();
+    input.value = " "
 }
+
 
 
 
 function deleteTodo(index) {
-    arr.splice(index, 1);
-    renderTodo()
+    arr.splice(index , 1)
+    renderTodo();
+    
 }
 
+
+
 function editTodo(index) {
-    const updatedVal = prompt('enter updated value');
-    arr.splice(index , 1 , updatedVal);
-    renderTodo()
+    const updateValue = prompt("Enter a new value");
+    arr.splice(index , 1 , updateValue);
+    renderTodo();
 }
+
+
 
 
 
